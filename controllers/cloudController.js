@@ -56,7 +56,8 @@ const uploadPaychecksToDrive = async (req, res, next) => {
       return status;
     });
     await Promise.all(uploadPromises);
-    return res.status(200).send({ statusText: "OK", uploadedFiles });
+    req.uploadedFiles = uploadedFiles
+    next();
   } catch (error) {
     next(error);
   }

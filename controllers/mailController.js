@@ -1,6 +1,7 @@
 const { EmailService } = require("../services/emailService");
 const { gmailCredentials, apiKeys } = require("../constants");
 const archiver = require('archiver');
+const { emptyDir } = require("fs-extra");
 
 const connectToEmail = async (req, res, next) => {
   try {
@@ -87,7 +88,14 @@ const getFullContentOfMessages = async (req, res, next) => {
   }
 };
 
-const deleteFilesFromFolderDownloads = () => {} // to implement
+const emptyDownloadsFolderFromPaychecks = async (req, res, next) => {
+  try {
+    await emptyDir('./downloads');
+    return res.status(200).send({ statusText: "OK", uploadedFiles: req.uploadedFiles });
+  }catch(error) {
+    next(error);
+  }
+} // to implement
 
 module.exports = {
   connectToEmail,
@@ -96,4 +104,5 @@ module.exports = {
   downloadPaychecks,
   downloadPaychecksOnClientPc,
   getFullContentOfMessages,
+  emptyDownloadsFolderFromPaychecks
 };

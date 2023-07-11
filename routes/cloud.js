@@ -10,7 +10,7 @@ const {
   insertMessageIdToDB,
   connectToDB,
 } = require("../controllers/dbController");
-const { connectToEmail, downloadPaychecks } = require("../controllers/mailController");
+const { connectToEmail, downloadPaychecks, emptyDownloadsFolderFromPaychecks } = require("../controllers/mailController");
 
 /**
  * @swagger
@@ -77,7 +77,8 @@ router.get(
   connectToDB,
   checkIfMessageIdExistInDB,
   insertMessageIdToDB,
-  uploadPaychecksToDrive
+  uploadPaychecksToDrive,
+  emptyDownloadsFolderFromPaychecks,
 );
 
 module.exports = router;

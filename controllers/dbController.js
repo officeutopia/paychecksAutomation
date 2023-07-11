@@ -25,7 +25,6 @@ const checkIfMessageIdExistInDB = async (req, res, next) => {
 
 const insertMessageIdToDB = async (req, res, next) => {
   try {
-    console.log(req.params.message_id);
     await global.postgresService.insertMessage(req.params.message_id);
     // console.log("Saved message in DB!");
     next();
