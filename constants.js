@@ -4,7 +4,7 @@ const apiKeys = {
     postgres_name: process.env.POSTGRES_NAME,
     postgres_host: process.env.POSTGRES_HOST,
     postgres_port: process.env.POSTGRES_PORT,
-    employeesFolderId: process.env.EMPLOYEES_FOLDER_ID,
+    devEmployeesFolderId: process.env.DEV_EMPLOYEES_FOLDER_ID,
     emailSender: "yossef@utopia.tech"
 }
 

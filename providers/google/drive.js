@@ -1,6 +1,7 @@
 const { createReadStream} = require("fs");
 const { default: axios } = require("axios");
 const { google } = require("googleapis");
+const { apiKeys } = require("../../constants");
 
 class Drive {
   drive;
@@ -50,6 +51,27 @@ class Drive {
     const status = res.data;
 
     return status;
+  }
+
+  async createNewFolder(name) {
+    // throw new Error('No folder name has been provided')
+    if (!name) {
+      console.log("i was here", name)
+      throw new Error('No folder name has been provided')
+    };
+
+    const folderMetadata = {
+      name: name,
+      mimeType: "application/vnd.google-apps.folder",
+      parents: [apiKeys.devEmployeesFolderId],
+    };
+
+    const folder = await this.drive.files.create({
+      resource: folderMetadata,
+      fields: "id",
+    });
+
+    return folder.data.id;
   }
 }
 

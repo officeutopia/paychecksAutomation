@@ -29,7 +29,7 @@ const getMessages = async (req, res, next) => {
       subject: "שכר יוני",
     });
     req.body.message_id = messages[1].id;
-    console.log("Got the message!");
+    // console.log("Got the message!");
     res.send({ messages });
   } catch (error) {
     next(error);
@@ -44,7 +44,7 @@ const downloadPaychecks = async (req, res, next) => {
       message_id: messageId,
       path: "./downloads",
     });
-    console.log("Downloaded the files!");
+    // console.log("Downloaded the files!");
     next()
   } catch (error) {
     next(error);
@@ -87,7 +87,7 @@ const getFullContentOfMessages = async (req, res, next) => {
   }
 };
 
-const deleteFilesFromFolderDownloads = () => {}
+const deleteFilesFromFolderDownloads = () => {} // to implement
 
 module.exports = {
   connectToEmail,

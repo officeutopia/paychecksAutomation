@@ -49,6 +49,10 @@ class EmailService {
     return await this.could_storage_provider.uploadFileToDrive(options);
   }
 
+  async createNewFolder(name) {
+    return await this.could_storage_provider.createNewFolder(name)
+  }
+
   async getFullContentOfMessages(options) {
     return await this.mail_provider.getFullContentOfMessages(options)
   }

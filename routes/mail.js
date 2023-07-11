@@ -54,36 +54,36 @@ router.get('/checkEmailConnection', connectToEmail, checkEmailConnection);
 router.get('/getMessagesIds', connectToEmail ,getMessages);
 
 
-/**
- * @swagger
- * /mail/downloadPaychecks/{message_id}:
- *   get:
- *     summary: Downloading the paychecks on client pc.
- *     parameters:
- *       - in: path
- *         name: message_id
- *         required: true
- *         schema:
- *           type: string
- *         description: The paycheck message id
- *     tags: [Email Api]
- *     responses:
- *       200:
- *         description: Return "OK" if download was successful
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 statusText:
- *                   type: string
- *                 statusCode:
- *                   type: number
- *                 downloadedFiles:
- *                   items: 
- *                      type: string
- *                      example: "file_1"
- */
+// /**
+//  * @swagger
+//  * /mail/downloadPaychecks/{message_id}:
+//  *   get:
+//  *     summary: Downloading the paychecks on client pc.
+//  *     parameters:
+//  *       - in: path
+//  *         name: message_id
+//  *         required: true
+//  *         schema:
+//  *           type: string
+//  *         description: The paycheck message id
+//  *     tags: [Email Api]
+//  *     responses:
+//  *       200:
+//  *         description: Return "OK" if download was successful
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               type: object
+//  *               properties:
+//  *                 statusText:
+//  *                   type: string
+//  *                 statusCode:
+//  *                   type: number
+//  *                 downloadedFiles:
+//  *                   items: 
+//  *                      type: string
+//  *                      example: "file_1"
+//  */
 router.get('/downloadPaychecks/:message_id', connectToEmail ,downloadPaychecks)
 
 /**

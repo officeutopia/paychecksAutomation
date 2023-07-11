@@ -74,9 +74,9 @@ router.get(
   connectToEmail,
   downloadPaychecks,
   connectToCloud,
-  // connectToDB,
-  // checkIfMessageIdExistInDB,
-  // insertMessageIdToDB,
+  connectToDB,
+  checkIfMessageIdExistInDB,
+  insertMessageIdToDB,
   uploadPaychecksToDrive
 );
 
